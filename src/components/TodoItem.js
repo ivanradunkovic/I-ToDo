@@ -5,7 +5,7 @@ class TodoItem extends React.Component
     render()
     {
         const completedStyle = {
-            fontStyle: "italic",
+            fontStyle: "bold",
             color: "#228B22"
         };
 
