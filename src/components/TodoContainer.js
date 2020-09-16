@@ -3,6 +3,9 @@ import TodosList from "./TodosList";
 import InputTodo from "./InputTodo"
 import Header from "./Header";
 import { v4 as uuidv4 } from "uuid";
+import { Route, NavLink, BrowserRouter as Router, Switch } from "react-router-dom";
+import App from "../App"
+import Contact from "../Contact";
 
 class TodoContainer extends React.Component
 {
@@ -46,6 +49,7 @@ class TodoContainer extends React.Component
     addTodoItem = (title) =>
     {
         const newTodo = {
+            // id: uuid.v4(),
             id: uuidv4(),
             title: title,
             completed: false,
@@ -54,7 +58,6 @@ class TodoContainer extends React.Component
             todos: [...this.state.todos, newTodo],
         });
     };
-
     delTodo = (id) =>
     {
         this.setState({
@@ -70,15 +73,28 @@ class TodoContainer extends React.Component
     render()
     {
         return (
-            <div className="container">
-                <Header />
-                <InputTodo addTodoProps={this.addTodoItem} />
-                <TodosList
-                    todos={this.state.todos}
-                    handleChangeProps={this.handleChange}
-                    deleteTodoProps={this.delTodo}
-                />
-            </div>
+            <Router>
+                <div className="container">
+                    <Header />
+                    <ul>
+                        <li>
+                            <NavLink activeClassName="active" to="/contact">
+                                Contact
+                    </NavLink>
+                        </li>
+                        <Switch>
+                            <Route exact path="/" component={App} />
+                            <Route path="/contact" component={Contact} />
+                        </Switch>
+                    </ul>
+                    <InputTodo addTodoProps={this.addTodoItem} />
+                    <TodosList
+                        todos={this.state.todos}
+                        handleChangeProps={this.handleChange}
+                        deleteTodoProps={this.delTodo}
+                    />
+                </div>
+            </Router>
         );
     }
 }
