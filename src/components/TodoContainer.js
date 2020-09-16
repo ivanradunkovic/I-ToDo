@@ -1,5 +1,6 @@
 import React from 'react'
 import TodosList from "./TodosList";
+import InputTodo from "./InputTodo"
 
 class TodoContainer extends React.Component
 {
@@ -24,14 +25,43 @@ class TodoContainer extends React.Component
         ]
     };
 
+    hendleChange = (id) =>
+    {
+        this.setState({
+            todos: this.state.todos.map((todo) =>
+            {
+                if (todo.id === id)
+                {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            }),
+        });
+    };
+
+    addTodoItem = (title) =>
+    {
+        const newTodo = {
+            id: this.id(),
+            title: title,
+            completed: false,
+        };
+        this.setState({
+            todos: [...this.state.todos, newTodo],
+        });
+    };
+
     render()
     {
         return (
-            <div>
-                <TodosList todos={this.state.todos} />
+            <div className="container">
+                <InputTodo addTodoProps={this.addTodoItem} />
+                <TodosList
+                    todos={this.state.todos}
+                    handleChangeProps={this.handleChange}
+                />
             </div>
         );
     }
 }
-
-export default TodoContainer
+export default TodoContainer;
