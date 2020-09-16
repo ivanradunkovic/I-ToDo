@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 5px;
+  padding: 1px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  color: #000000;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.form-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+}
+.input-text {
+  flex: 10;
+  font-size: 15px;
+  padding: 10px 15px;
+  border: 1px solid #C0C0C0;
+  outline: none;
+  font-weight: 500;
+  max-width: 75%;
+}
+.input-text::placeholder {
+  color: #2F4F4F;
+}
+.input-submit {
+  flex: 5;
+  border: none;
+  background: #038203;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+  width: 20%;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-item {
+  list-style-type: none;
+  padding: 15px 0px;
+  border-bottom: 1px solid #F0FFFF;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-item input {
+  margin-right: 15px;
+}
+.todo-item button {
+  background: #FF0000;
+  color: #fff;
+  border: solid #FF0000;
+  padding: 5px 5px;
+  cursor: pointer;
+  float: right;
+  outline: none;
 }

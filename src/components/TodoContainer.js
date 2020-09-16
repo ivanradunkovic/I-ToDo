@@ -1,6 +1,7 @@
 import React from 'react'
 import TodosList from "./TodosList";
 import InputTodo from "./InputTodo"
+import Header from "./Header";
 
 class TodoContainer extends React.Component
 {
@@ -51,14 +52,28 @@ class TodoContainer extends React.Component
         });
     };
 
+    delTodo = (id) =>
+    {
+        this.setState({
+            todos: [
+                ...this.state.todos.filter((todo) =>
+                {
+                    return todo.id !== id;
+                }),
+            ],
+        });
+    };
+
     render()
     {
         return (
             <div className="container">
+                <Header />
                 <InputTodo addTodoProps={this.addTodoItem} />
                 <TodosList
                     todos={this.state.todos}
                     handleChangeProps={this.handleChange}
+                    deleteTodoProps={this.delTodo}
                 />
             </div>
         );
