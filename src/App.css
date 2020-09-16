@@ -4,20 +4,24 @@
   margin: 5px;
   padding: 1px;
 }
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.5;
   color: #000000;
 }
+
 .container {
   max-width: 500px;
   margin: 0 auto;
   padding: 0 10px;
 }
+
 .form-container {
   display: flex;
   width: 100%;
 }
+
 .input-text {
   flex: 10;
   font-size: 15px;
@@ -27,9 +31,11 @@ body {
   font-weight: 500;
   max-width: 75%;
 }
+
 .input-text::placeholder {
   color: #2F4F4F;
 }
+
 .input-submit {
   flex: 5;
   border: none;
@@ -47,9 +53,11 @@ body {
   padding: 15px 0px;
   border-bottom: 1px solid #F0FFFF;
 }
+
 .todo-item input {
   margin-right: 15px;
 }
+
 .todo-item button {
   background: #FF0000;
   color: #fff;

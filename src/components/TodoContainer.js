@@ -2,6 +2,7 @@ import React from 'react'
 import TodosList from "./TodosList";
 import InputTodo from "./InputTodo"
 import Header from "./Header";
+import { v4 as uuidv4 } from "uuid";
 
 class TodoContainer extends React.Component
 {
@@ -9,24 +10,26 @@ class TodoContainer extends React.Component
     state = {
         todos: [
             {
-                id: 1,
+                id: uuidv4(),
                 title: "Create todo app",
                 completed: true
             },
+
             {
-                id: 2,
+                id: uuidv4(),
                 title: "Commit to Github",
                 completed: false
             },
+
             {
-                id: 3,
+                id: uuidv4(),
                 title: "Fix bugs",
                 completed: false
             }
         ]
     };
 
-    hendleChange = (id) =>
+    handleChange = (id) =>
     {
         this.setState({
             todos: this.state.todos.map((todo) =>
@@ -43,7 +46,7 @@ class TodoContainer extends React.Component
     addTodoItem = (title) =>
     {
         const newTodo = {
-            id: this.id(),
+            id: uuidv4(),
             title: title,
             completed: false,
         };
@@ -79,4 +82,5 @@ class TodoContainer extends React.Component
         );
     }
 }
+
 export default TodoContainer;
